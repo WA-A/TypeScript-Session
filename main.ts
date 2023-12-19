@@ -23,3 +23,13 @@ let user:User  = {
 
 }
 console.log(user.name);
+
+//Generic : same Template in c++
+function getData<T>(names:T[]):T[]{
+    return names;
+}
+let data1:string[]=["Ansam","Wasan"];
+let data2:number[]=[26,21];
+
+console.log(getData<string>(data1));
+console.log(getData<number>(data2));
