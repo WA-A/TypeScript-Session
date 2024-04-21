@@ -7,22 +7,61 @@ let data:any; // This means that it accepts any type of data
 let users:any[]; // This means that it array accepts any type of data
 
 
-interface User{
-    name:string,
+interface User{ // include the readonly and make extended in another interface
+   readonly name:string, // no change to value
     age:number,
     sayHello():string,
+   
 }
-
 let user:User  = {
     name:"Wasan",
     age : 21,
     sayHello:()=> {
         return "hello";
     }
-
-
 }
+
 console.log(user.name);
+
+type person ={
+    name:string,
+    age:number,
+    sayHello():string,
+    title?:string
+}
+
+
+let user2:person  = {
+    name:"Wasan Awwad",
+    age : 21,
+    sayHello:()=> {
+        return "hello";
+    }
+}
+
+console.log(user2?.title);
+
+interface persondata extends Omit<User,'age'>{} // age in User not persondata --> means get all but without age 
+
+
+interface personData extends Pick<User,'age'>{} //  means just need age 
+
+
+interface persondata2 extends Partial<User>{} //  means the all is optional 
+
+
+// enum
+enum Gender{
+    Male='male',
+    Female ='Female'
+}
+
+if (Gender.Female)
+    enum roles{
+Admin='admin'
+}
+roles.Admin
+
 
 //Generic : same Template in c++
 function getData<T>(names:T[]):T[]{
