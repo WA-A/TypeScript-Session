@@ -86,3 +86,18 @@ console.log(getData<string>(data1));
 console.log(getData<number>(data2));
 
 
+// index signature
+
+interface Istudent {
+    name:string;
+    GPA:number
+}
+
+const myInfo:Istudent ={
+    name:'tariq',
+    GPA:4
+}
+
+const props:string = "GPA";
+
+console.log(myInfo[props as keyof Istudent]);
